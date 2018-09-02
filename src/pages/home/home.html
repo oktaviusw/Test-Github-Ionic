@@ -1,14 +1,36 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Home Page
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <button ion-button (click)="buttonClick()">Click The Button</button>
+  <br>
+  <!--
+    <ion-item>
+      <ion-label color="primary" fixed>Nama</ion-label>
+      <ion-input type="text" [(ngModel)]="namaLengkap"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" fixed>Umur</ion-label>
+        <ion-input type="number" [(ngModel)]="umur"></ion-input>
+    </ion-item>
+
+    <button ion-button (click)="moveToFirstPage()">Go To First Page</button>
+  -->
+  
+  <form #form="ngForm" (ngSubmit)="moveToFirstPage()" novalidate>
+    <ion-item>
+      <ion-label color="primary" fixed>Nama</ion-label>
+      <ion-input type="text" [(ngModel)]="data.namaLengkap" ngControl="namaLengkap" name="namaLengkap"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" fixed>Umur</ion-label>
+      <ion-input type="number" [(ngModel)]="data.umur" ngControl="umur" name="umur"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Go To First Page</button>
+  </form>
 </ion-content>
